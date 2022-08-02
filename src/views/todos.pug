@@ -1,0 +1,17 @@
+extends layout.pug
+
+block title
+    title Todo-app
+
+block content
+    nav
+        ul 
+            li 
+                a(href="/") Home
+    form(method="POST")
+        input(placeholder="Write your todo", name="item", required="true", type="text" maxLength="50")
+        input(type="submit", value="Write")
+
+    ul 
+        each item in items
+            li=item.item
