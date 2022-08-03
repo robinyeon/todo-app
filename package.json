@@ -4,7 +4,7 @@
   "description": "Basic todo-app with NodeJS and MongoDB",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/app.js"
+    "start": "nodemon src/app.js"
   },
   "author": "Robin Yeon",
   "license": "ISC",
