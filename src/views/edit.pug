@@ -1,0 +1,27 @@
+extends layout.pug
+
+block title
+    title TODO
+
+block content
+    nav
+        ul 
+            li
+                a(href="/") Home
+    form(method="POST")
+        input(placeholder="Write your todo", name="item", required="true", type="text" maxLength="50" autocomplete="off")
+        input(type="submit", value="Write")
+
+    ul 
+        each item in items
+            if item.id===foundItem.id
+                li 
+                    form(method="POST" action=`/todos/update/${foundItem.id}`)
+                        input(value=`${foundItem.item}`, name="item", required="true", type="text" maxLength="50" autocomplete="off")
+                        input(type="submit", value="update")
+                        input(type="button" value="delete" onclick=`location.href="/todos/remove/${item.id}"`)
+
+            else
+                li=item.item
+                    input(type="button" value="edit" onclick=`location.href="/todos/edit/${item.id}"`)
+                    input(type="button" value="delete" onclick=`location.href="/todos/remove/${item.id}"`)

@@ -1,19 +1,19 @@
 extends layout.pug
 
 block title
-    title Todo-app
+    title TODO🗓
 
 block content
     nav
         ul 
             li 
                 a(href="/") Home
-    form(method="POST")
-        input(placeholder="Write your todo", name="item", required="true", type="text" maxLength="50")
+    form(method="POST" action="/todos/write")
+        input(placeholder="Write your todo", name="item", required="true", type="text" maxLength="50" autocomplete="off")
         input(type="submit", value="Write")
 
     ul 
         each item in items
             li=item.item
-            input(type="button" value="delete" onclick="location.href='/todos/delete/#{id}'")
-    
+                input(type="button" value="edit" onclick=`location.href="/todos/edit/${item.id}"`)
+                input(type="button" value="delete" onclick=`location.href="/todos/remove/${item.id}"`)
